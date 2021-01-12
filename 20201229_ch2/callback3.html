@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calc(cb, n1, n2){
+            cb(n1, n2); // 보내는 함수가 실행 될 것이다.
+        }
+
+        function sum(a, b){
+            console.log('sum: ' + (a + b));
+        }
+
+        function multi(a, b){
+            console.log('multi: ' + (a * b));
+        }
+
+        calc(sum, 10, 20);  // 함수 이름을 보내면 참조가 된다!!
+        calc(multi, 10, 20);
+    </script>
+</body>
+</html>

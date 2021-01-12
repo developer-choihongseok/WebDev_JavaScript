@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1(){
+            setTimeout(function(){  // 바로 실행하지 않고, 기다리는 함수
+                console.log('fn1 called');
+            }, 3000);   // 3초
+        }
+
+        function fn2(){
+            setTimeout(function(){
+                console.log('fn2 called');
+            }, 2000);   // 2초
+        }
+
+        fn1();
+        fn2();  // 비동기 방식이므로, 먼저 끝난게 먼저 실행이 된다!!
+    </script>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>forEach</title>
+</head>
+<body>
+    <script>
+        var arr = [4, 9, 11, 16, 29, 28, 33];
+
+        for(var i = 0; i < arr.length; i++){
+            console.log(arr[i]);
+        }
+        
+        console.log('====================')
+
+        function print(item){
+            console.log(item);
+        }
+
+        arr.forEach(print); // arr['forEach'](print); 가능!!
+        
+        console.log('====================arr.forEach')
+        
+        arr.forEach(function(item){
+            console.log(item);
+        });
+
+        console.log('====================myArr.forEach')
+
+        // '유사배열' 이라고 부른다.
+        var myArr = {
+            0: 4,   // 객체명으로 속성 값에 '숫자'(= 인덱스) 들어갈 수 있다!!
+            1: 9,
+            2: 11,
+            3: 16,
+            4: 29,
+            5: 28,
+            6: 33,
+            length: 7,
+            forEach: function(cb){
+                // console.log(this[0]); // JS에서는 꼭 this를 적어줘야 한다.
+
+                // 하드 코딩
+                // cb(this[0]);
+                // cb(this[1]);
+                // cb(this[2]);
+
+                for(var i = 0; i < this.length; i++){
+                    cb(this[i]);
+                }
+            }
+        };
+        
+        myArr.forEach(print);
+    </script>
+</body>
+</html>

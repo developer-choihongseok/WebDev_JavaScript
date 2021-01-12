@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        function fn1(){
+            var p = new Promise(function(resolve){
+                setTimeout(function(){  // new하는 순간 실행이 된다.
+                    resolve('fn1 called');
+                }, 3000);   // 3초
+            });
+            
+            return p;
+        }
+
+        function fn2(){
+            return new Promise(function(resolve){
+                setTimeout(function(){
+                    resolve('fn2 called')
+                }, 2000);   // 2초
+            });
+        }
+
+        function fn3(){
+            return new Promise(function(resolve){
+                setTimeout(function(){
+                    resolve('fn3 called')
+                }, 1000);   // 1초
+            });
+        }
+
+        // 값은 1개 밖에 못 받음.
+        // 여러개를 받고 싶으면 객체로 전달 받아야 한다.
+        fn1().then(function(val) {  // 객체를 리턴한다.
+            console.log('p1-val: ' + val);
+            return fn2();
+        }).then(function(a) {   // fn2()
+            console.log('p2-a: ' + a);
+            return fn3();
+        }).then(function(b){    // fn3()
+            console.log('p3-b: ' + b);
+        });
+    </script>
+</body>
+</html>

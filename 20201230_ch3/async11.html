@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function proc(){
+            try{
+                var val = await calc(10, 0);
+                console.log('val: ' + val);
+            }catch(e){
+                console.log('e: ' + e);
+            }finally{
+                console.log('finally');
+            }
+        }
+        proc();
+        
+        function calc(n1, n2){
+            return new Promise(function(resolve, reject){
+                var result = n1 / n2;
+                if(result == Infinity){ // 에러 발생!
+                    reject('문제 발생');     // 에러를 throw.
+                }else{  // 이상 없음!
+                    resolve(result);
+                }
+            });
+        }
+    </script>
+</body>
+</html>

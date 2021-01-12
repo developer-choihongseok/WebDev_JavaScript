@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM</title>
+</head>
+<body>
+    <input type="text" id="tx1">    <!-- value 생략시, value='' -->
+    <input type="text" id="tx2">
+    <button onclick="confirm();">확인</button>
+
+    <script>
+        // function confirm(){
+        //     var bodyC = document.body.children; // 배열로 넘어간다.
+
+        //     console.log(bodyC[0]);
+        //     console.log(bodyC[1]);
+
+        //     var eleTx1 = document.getElementById('tx1');
+        //     eleTx1.value = '111111111111aaaaaaaaaaaa';
+
+        //     console.log(eleTx1.value);
+        //  }
+
+        function confirm(){
+            // var eleTx1 = document.getElementById('tx1');    // 1번째 방법,   옛날 방식이므로, 현재도 돌아간다.
+            var eleTx1 = document.querySelector('#tx1');
+            var eleTx2 = document.querySelector('#tx2');
+
+            // eleTx1.value = 'ddddddd';   // 값 변경도 가능.  ※ = : 추가하는 개념이 아니라, 교체하는 개념!!
+            // eleTx1.value = eleTx1.value + 'ddddddd'; // 문자열 연결
+
+            // console.log(window.tx1.value);  // window 생략가능.
+            console.log(eleTx1.value);
+            console.log(eleTx2.value);
+        }
+    </script>
+</body>
+</html>

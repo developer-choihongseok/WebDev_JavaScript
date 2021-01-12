@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>논리연산자 &&와 논리연산자 ||</title>
+</head>
+<body>
+    <script>
+        function chk_1(){
+            console.log('chk_1 called');
+            return 0;   // false    1 : true
+        }
+
+        function chk_2(){
+            console.log('chk_2 called');
+            return '';  // false
+        }
+
+        function chk_3(){
+            console.log('chk_3 called');
+            return {};  // true
+        }
+
+        function chk_4(){   // undefined
+            console.log('chk_4 called');
+        }
+
+        // && : 전부 true면 true.
+        // chk_1 = true면, 나머지 다 검사해야 한다.
+        // chk_1 = false면, 나머지를 검사하지 않는다.
+        if(chk_1() && chk_2() && chk_3() && chk_4()){
+            console.log('완료!');
+        }
+        
+        console.log('====================')
+
+        // || : 하나라도 true면 true, 둘 다 false면 false.
+        // chk_1 = false나오면 뒤에꺼 검사해야 한다.
+        // chk_1 = true나오면 뒤에꺼 검사할 필요 없다.
+        if(chk_1() || chk_2() || chk_3() || chk_4()){
+            console.log('완료!');
+        }
+
+        console.log('====================')
+
+        if((chk_1() || chk_2()) && chk_3() && chk_4()){
+            console.log('완료!');
+        }
+    </script>
+</body>
+</html>

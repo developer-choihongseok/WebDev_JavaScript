@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <button onclick="getImages();">이미지 가져오기</button>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var page = 1;   // 처음페이지: 1로 초기화.
+        var cont = document.querySelector('#container');
+
+        function getImages(){
+            var url = `https://picsum.photos/v2/list?page=${page++}&limit=18`;
+            axios.get(url).then(function(res){  // get이 리턴해주는 것: promise 객체.
+                if(res.status == 200){
+                    res.data.forEach(function(item){
+                        makeElement(item);
+                    });
+                }
+            });
+        }
+
+        function makeElement(item){ // 객체가 item으로 넘어올 것이다.
+            var img = document.createElement('img');    // img태그
+            img.src = `https://picsum.photos/id/${item.id}/300`;   // img.src = <img src="">
+
+            cont.append(img);   // element(요소), 문자열 둘 다 추가할 수 있다.
+        }
+    </script>
+</body>
+</html>

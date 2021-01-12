@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 처리</title>
+</head>
+<body>
+    <h1>event</h1>
+
+    <input type="number" id="tx1">
+    <input type="number" id="tx2">
+    <input type="number" id="result" readonly>
+
+    <button id="btnSum">더하기</button>
+    <button onclick="delEvent();">이벤트 삭제</button>
+
+    <script>
+        // 참조값이므로, 한번만 가져오면 된다.
+        var n1 = document.querySelector('#tx1');
+        var n2 = document.querySelector('#tx2');
+        var total = document.querySelector('#result');
+        var eleBtn = document.querySelector('#btnSum');
+        
+        // 1번 : onclick을 바로 넣는 방법.
+        // eleBtn.onclick = sum(); -> X     이유 : return 값을 onclick에 넣는다는 의미가 되므로.
+        eleBtn.onclick = sum;
+
+        // 2번 : 익명 클래스를 이용하는 방법.
+        eleBtn.onclick = function(){    // 1번과 결과가 같다. 똑같이 sum이 호출된다.
+            sum();
+        }
+ 
+        function sum(){
+            var num1 = parseInt(n1.value);
+            var num2 = Number(n2.value);
+
+            total.value = num1 + num2;
+        }
+
+        function delEvent(){
+            eleBtn.onclick = null;
+        }
+
+        /*
+         parseInt와 Number의 차이점
+            - parseInt: 숫자와 문자가 섞여 있으면, 문자를 만나기 전까지의 숫자가 출력된다. 
+            - Number: 문자가 있으면 NaN으로 바꿔준다.
+
+            ※ parseInt는 언제 사용하면 좋을까?
+                -> 소수를 정수로 바꿀 때, 주로 사용하면 좋다.
+        */
+    </script>
+</body>
+</html>

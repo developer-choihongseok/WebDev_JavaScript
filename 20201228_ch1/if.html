@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>if문</title>
+</head>
+<body>
+    <script>
+        /*
+         정수에서는 0: false, 나머지 숫자: true
+         문자열에서는 '': false, 문자가 하나라도 있다?: true
+         
+         JS에서는 배열 표현 []  c.f) JAVA에서는 {}
+        */
+        if(10 > 5){ // 조건식에 boolean값만 올 수 있다.
+            console.log('10은 5보다 크다');
+        }
+
+        if(1){
+            console.log('1은 true입니다.'); 
+        }
+
+        if(2){
+            console.log('2는 true입니다.'); 
+        }
+
+        if(-2){
+            console.log('-2는 true입니다.'); 
+        }
+
+        if(0){
+            console.log('0은 false입니다.'); 
+        }
+
+        var msg = '안녕';
+
+        if(msg){
+            console.log('msg : ' + msg);
+        }
+
+        // 배열에 값이 있든지, 없든지 주소값이 들어가기 때문에 true
+        // undefined 는 false, null 값을 줘도 false
+        var arr = [];
+        if(arr){
+            console.log('배열입니다.');
+        }
+
+        // 객체에 값이 있든지, 없든지 주소값이 있을 경우 true
+        var obj = {};
+        if(obj){
+            console.log('객체입니다.');
+        }
+    </script>
+</body>
+</html>

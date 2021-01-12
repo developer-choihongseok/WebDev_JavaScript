@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // async와 await는 Promise랑 같이 쓰는 것!!
+        async function proc(){
+            var val = await fn1(3, 5);
+            console.log('fn1-val: ' + val);
+
+            val = await fn2(val);
+            console.log('fn2-val: ' + val);
+            
+            val = await fn3(val);
+            console.log('fn3-val: ' + val);
+        }
+        proc();
+
+        function fn1(n1, n2){
+            return new Promise(function(resolve){ 
+                setTimeout(function(){
+                    resolve(n1 + n2);
+                }, 3000);
+            });
+        }
+
+        function fn2(val){
+            return new Promise(function(resolve){ 
+                setTimeout(function(){
+                    resolve(val * 2);
+                }, 2000);
+            });
+        }
+
+        function fn3(val){
+            return new Promise(function(resolve){ 
+                setTimeout(function(){
+                    resolve(val - 5);
+                }, 1000);
+            });
+        }
+    </script>
+</body>
+</html>

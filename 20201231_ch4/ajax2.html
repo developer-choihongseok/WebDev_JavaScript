@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+</head>
+<body>
+    <button onclick="getData();">자료 가져오기</button>
+    <div id="container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+        var cont = document.querySelector('#container');
+
+        function getData(){
+            var url = 'https://api.mocki.io/v1/b043df5a';
+            var http = axios.get(url);
+
+            http.then(function(res){    // http : Promise 객체
+                if(res.status == 200){  // 웹 통신에서 'ok'라는 값
+                    // data: 객체
+                    res.data.forEach(function(item){    // 배열에 담겨있는 객체 하나하나 뜻어서 넣는 것을 말한다.
+                        // console.log(item);
+                        makeElement(item);
+                    });
+                }
+                console.log(res);
+            });
+        }
+
+        // 호출되면, 새로운 div태그가 계속 만들어진다.
+        function makeElement(item){
+            var div = document.createElement('div');    // 부모 태그이며, div태그가 메모리에 올라가있다.
+
+            var divCity = document.createElement('div');    // 자식 태그, div태그가 메모리에 올라가있다.
+            divCity.innerText = 'city : ' + item.city;  // innerText : div태그 사이에 문자열을 넣을 수 있다. 즉, <div>문자열</div>
+
+            var divName = document.createElement('div');
+            divName.innerText = 'name : ' + item.name;
+
+            div.append(divCity);    // append(): 선택된 요소의 마지막에 새로운 요소나 콘텐츠를 추가.
+            div.append(divName);
+
+            cont.append(div);
+        }
+    </script>
+</body>
+</html>

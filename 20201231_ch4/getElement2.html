@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="number" id="tx1">
+    <input type="number" id="tx2">
+    <input type="number" id="result" readonly>
+    <button onclick="sum();">더하기</button>
+
+    <script>
+        var n1 = document.querySelector('#tx1');
+        var n2 = document.querySelector('#tx2');
+        var total = document.querySelector('#result');
+        
+        // function 바깥 부분은 한 번만 실행.
+        // 만약, 바뀌는 값을 가지고 올 때는 함수 안에다가 설정해야한다.
+        function sum(){
+            var num1 = parseInt(n1.value);
+            var num2 = Number(n2.value);
+
+            total.value = num1 + num2;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var obj = {
+            110: 1,
+            120: 2,
+            130: 3
+        };
+
+        console.log(110 in obj);
+
+        // console.log(obj[110]);
+        console.log(obj.hasOwnProperty(110));
+        console.log(obj[111] !== undefined);    // false
+        
+        obj[200] = 1;
+
+        console.log(obj.hasOwnProperty(200));
+        console.log(obj[200] !== undefined);    // true
+    </script>
+</body>
+</html>

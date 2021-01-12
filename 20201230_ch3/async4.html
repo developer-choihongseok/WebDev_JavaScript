@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fn1(n1, n2){
+            setTimeout(function(){
+               fn2(n1 + n2);
+            }, 3000);
+        }
+
+        function fn2(val){
+            setTimeout(function(){
+                result = val * 2;
+                console.log('result: ' + result);
+            }, 1000);
+        }
+
+        fn1(3, 5);
+    </script>
+</body>
+</html>

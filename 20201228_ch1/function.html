@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>함수1</title>
+</head>
+<body>
+    <script>
+        /*
+         함수 선언시 주의)
+            1. 파라미터 자리에 var를 적으면 에러가 뜬다.
+            2. 앞에 리턴타입을 적지 않는다.
+
+         function 함수명(파라미터){
+
+         }
+
+         ex) console.log(parseInt('1212aaaa'));
+            -> 문자가 나오기 전까지, 값이 나온다.
+
+         JS에서는 오버라이딩, 오버로딩이라는 개념 X.
+
+         Number에 문자가 섞여있으면, 무조건 NaN이 나온다.
+            -> 숫자 + undefined = NaN
+            -> 숫자 - undefined = NaN
+            -> 숫자 * undefined = NaN
+            -> 숫자 / undefined = NaN
+        */
+       
+        // 리턴값이 없는 경우..
+        function noReturn(item){
+            console.log(item);
+        }
+
+        function noReturn(item='haha'){ // 기본값을 주는 게 가능.
+            console.log(item);
+        }
+
+        noReturn('안녕', 'dddd', 121212);
+        noReturn('Hello');
+        noReturn(); // undefined,   var item; console.log(item);와 같다.
+
+        var item;
+        console.log(item);
+        
+        // 리턴값이 있는 경우..
+        function returnFn(item){
+            return item + 10;
+            // console.log(item + 10);
+        }
+        
+        var plusTen = returnFn(20);
+        console.log('plusTen : ' + plusTen);
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>이벤트 처리</title>
+</head>
+<body>
+    <h1>event3</h1>
+
+    <input type="number" id="tx1">
+    <input type="number" id="tx2">
+    <input type="number" id="result" readonly>
+
+    <button id="btnSum">더하기</button>
+
+    <script>
+        var n1 = document.querySelector('#tx1');
+        var n2 = document.querySelector('#tx2');
+        var total = document.querySelector('#result');
+        var eleBtn = document.querySelector('#btnSum');
+
+        eleBtn.onclick = function(e){
+            sum();
+            print();
+        }
+
+        // sum()을 지우고 싶으면, 또 다시 적고, 아래와 같이 치환을 해주어야 한다.
+        // eleBtn.onclick = function(e){
+        //     print();
+        // }
+
+        function sum(){
+            var num1 = parseInt(n1.value);
+            var num2 = Number(n2.value);
+
+            total.value = num1 + num2;
+        }
+
+        function print(){
+            console.log(Number(n1.value) + Number(n2.value));
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가변 인자</title>
+</head>
+<body>
+    <script>
+        function sum(){
+            console.log(arguments.length);  // 배열
+
+            var sum = 0;
+
+            for(var i = 0; i < arguments.length; i++){
+                sum += arguments[i];
+            }
+            console.log('sum : ' + sum);
+        }
+
+        sum(1,2);
+        sum(4, 4, 5);
+        sum(2, 3, 4, 2, 3, 4, 555, 555);
+
+        function multi(n1, n2, n3){
+            console.log(arguments.length);  // 배열
+            
+            if(n1 && n2 && n3){
+                console.log('multi : ' + (n1 * n2 * n3));
+            }
+        }
+
+        multi(2,2); // false로 콘솔창표시X
+        multi(2,2,3);
+    </script>
+</body>
+</html>

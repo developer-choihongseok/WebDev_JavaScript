@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        function fn1(){
+            var p = new Promise(function(resolve){
+                setTimeout(function(){  // new하는 순간 실행이 된다.
+                    resolve('fn1 called');
+                }, 3000);   // 3초 후, 실행
+            });
+            
+            return p;
+        }
+
+        function fn2(){
+            return new Promise(function(resolve){
+                setTimeout(function(){  // new하는 순간 실행이 된다.
+                    resolve('fn2 called')
+                }, 2000);   // 2초 후, 실행
+            });
+        }
+
+        function fn3(){
+            return new Promise(function(resolve){
+                setTimeout(function(){
+                    resolve('fn3 called')
+                }, 1000);   // 1초 후, 실행
+            });
+        }
+
+        // Promise 객체를 리턴한다.
+        var p1 = fn1();
+        var p2 = fn2();
+
+        p1.then(function(val){
+            console.log(val);
+
+            p2.then(function(a){
+                console.log(a);
+
+                fn3().then(function(b){
+                    console.log(b);
+                })
+            });
+        });
+    </script>
+</body>
+</html>

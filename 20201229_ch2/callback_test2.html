@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>map</title>
+</head>
+<body>
+    <script>
+        var arr = [4, 9, 11, 16, 29, 28, 33];
+
+        console.log('arr: ' + arr);
+        
+        // 원래는 function(item, idx, thisArr)  -> idx: 0,1,2,3,4,5,6   thisArr: [4, 9, 11, 16, 29, 28, 33]
+        var arr2 = arr.map(function(item){
+            return item + 2;
+        });
+
+        console.log('arr2: ' + arr2);
+
+        var myArr = {
+            0: 4,
+            1: 9,
+            2: 11,
+            3: 16,
+            4: 29,
+            5: 28,
+            6: 33,
+            length: 7,
+            forEach: function(cb){
+                for(var i = 0; i < this.length; i++){
+                    cb(this[i]);
+                }
+            },
+            
+            map: function(callback){
+                var temp = [];  // 임시 배열
+
+                for(var i = 0; i < this.length; i++){
+                    var val = callback(this[i]);
+                    temp.push(val); // temp[i] = val;
+                }
+                return temp;
+            }
+        };
+
+        var arr3 = myArr.map(function(item){
+            return item + 2;
+        });
+
+        console.log('arr3: ' + arr3);
+    </script>
+</body>
+</html>

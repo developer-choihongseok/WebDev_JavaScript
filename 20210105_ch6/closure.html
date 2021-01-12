@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>클로저</title>
+</head>
+<body>
+    <script>
+        function getObject(){
+            var cnt = 0;    // hoisting 된 상태라고 생각하기.
+            
+            return {    // 객체를 리턴.
+                addCnt: function(){
+                    cnt++;
+                },
+                printCnt: function(){
+                    console.log(cnt);
+                }
+            }
+        }
+
+        var obj1 = getObject();
+        var obj2 = getObject();
+
+        obj1.addCnt();
+        obj1.addCnt();
+        obj1.printCnt();
+
+        obj2.addCnt();
+        obj2.printCnt();
+
+        /*
+         클로저 : 원래는 죽어야하는데, 죽지 않고 살아있는 상황을 말한다.
+        */
+    </script>
+</body>
+</html>

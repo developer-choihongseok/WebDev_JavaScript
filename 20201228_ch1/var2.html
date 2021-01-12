@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>변수</title>
+</head>
+<body>
+    <script>
+        /*
+         + 빼고, 다른 연산자는 자동으로 형변환 시켜준다!
+         NaN(= Not a Number) : '숫자가 아니다'는 뜻.
+         우선순위가 동일하다면, 왼쪽부터 계산이 된다.
+        */
+        var n1 = '6';
+        var n2 = 5;
+
+        console.log(n1 + n2);
+        console.log(parseInt(n1) + n2);
+        console.log(Number(n1) + n2);
+
+        console.log(n1 - n2);
+        console.log(n1 * n2);
+        console.log(n1 / n2);
+        console.log(n1 % n2);
+
+        console.log(5 + 5 + '5');   // 10 + '5' > '10' + '5' > '105'
+        console.log('5' * 5 + 5);   // 25 + 5 > 30
+        console.log(parseInt('5') * 5 + 5); // 이 방법 추천!
+    </script>
+</body>
+</html>

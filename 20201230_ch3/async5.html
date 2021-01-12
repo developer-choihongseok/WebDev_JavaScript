@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Promise</title>
+</head>
+<body>
+    <script>
+        var n1 = 10;
+        var n2 = 20;
+        var p = new Promise(function(resolve){  // 함수 작성
+            // 오래 걸리는 작업을 여기서 처리.
+            setTimeout(function(){
+                resolve(n1 + n2);   // return 해주고 싶은 값 입력
+            }, 2000);
+        });
+
+        // Promise 객체 사용방법
+        // .then을 쓰고 난 다음, 다시 함수를 사용해서 결과 출력.
+        p.then(function(result){    // result는 resolve(n1 + n2)를 호출한다.
+            console.log('result: ' + result);
+        });
+    </script>
+</body>
+</html>

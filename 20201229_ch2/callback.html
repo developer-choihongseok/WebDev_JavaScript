@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Call-Back Function</title>
+</head>
+<body>
+    <script>
+        function calc(n1, n2, callback){
+            callback(n1, n2);
+        }
+
+        // 함수 정의
+        // 이름이 있는 함수를 참조.
+        function sum(a, b){     // a,b : 외부로부터 값을 받아온다.
+            console.log('sum: ' + (a + b));
+        }
+        
+        sum(2, 4);  // 직접 호출
+        
+        // 아래 두 개 같은 방법!!
+        calc(2, 4, sum);
+        calc(2, 4, function(a, b){  // 참조
+            console.log('sum: ' + (a + b));
+        });
+
+        // 인자를 3개 보냈다.
+        calc(2, 4, function(a, b){
+            console.log('multi: '+ (a * b));
+        });
+    </script>
+</body>
+</html>

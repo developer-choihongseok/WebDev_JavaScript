@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <div id="container"></div>
+    <div id="second"></div>
+
+    <script>
+        var cont = document.querySelector('#container');    // 객체 주소값을 가리킨다.
+        var sec = document.querySelector('#second');
+
+        var div = document.createElement('div');    // 자바스크립트 문법으로 div객체를 만든 것. 하나의 엘리먼트 객체를 가리키고 있다.
+        div.id = 'children';    // id 속성에다가 children을 넣는다.
+
+        // cont 객체 1개이므로, 추가는 한 번 밖에 안된다.
+        cont.prepend(div);  // cont의 첫번째 자식자리에 소속.
+        cont.append(div);   // <div><div></div></div>, cont의 마지막 자식자리에 소속.
+
+        sec.append(div); // 기존에는 메모리에 있었다가, second의 제일 마지막으로 이동.
+
+        // document.body.prepend(div);
+
+        /*
+         prepend, append : 요소를 추가하는 것이 아니라, 요소의 위치를 이동하는 것이다!!
+        */
+    </script>
+</body>
+</html>

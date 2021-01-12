@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Call-Back Function2</title>
+</head>
+<body>
+    <script>
+        function calc(n1, n2, callback){
+            var sum = 0;
+
+            sum += callback(n1);    // 10   // 7
+            sum += callback(n2);    // 16   // 10
+
+            return sum;     // 주목하기!
+        }
+
+        var result = calc(5, 8, function(val){
+            return val * 2; // return : 나를 호출한 곳으로 값을 갖고 간다!!
+        });
+
+        console.log('result: ' + result);
+    </script>
+</body>
+</html>

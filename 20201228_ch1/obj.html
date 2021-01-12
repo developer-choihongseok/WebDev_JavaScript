@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>객체1</title>
+</head>
+<body>
+    <script>
+        // 생성자 함수를 이용해 반복적으로 동일한 형태(프로퍼티를 갖는)객체를 생성하는 일반적인 방법.
+        // 생성자를 사용하여 객체를 생성하는 이유: 동일 형태의 객체를 반복적으로 생성할 수 있기 때문.
+        function Human(name, age){
+            this.name = name;   // this.name : 전역변수
+            this.age = age;
+
+            // 이 방법을 선호하지 않는다.
+            this.whoAmI = function(){
+                console.log('나는 ' + this.name + '입니다. 제 나이는 ' + this.age + "살입니다.");
+            }
+        }
+
+        // 객체를 이용해 메소드를 추가할 경우 prototype를 사용하는 것을 더 선호한다.
+        // 퍼포먼스 상 훨씬 좋음. 객체를 생성하고 참조하는 방식으로 사용
+        // prototype : 부모
+        Human.prototype.showAge = function(){
+            console.log('My age is ' + this.age);
+        }
+
+        // 객체화
+        // new 실행하면 자동으로 this객체가 만들어진다.
+        var h1 = new Human('홍길동', 20);
+        var h2 = new Human('홍길동', 20);
+
+        h1.height = 190;
+        console.log('h1.height: ' + h1.height);
+
+        delete h1.height;
+
+        console.log('h1["height"]: ' + h1['height']);
+        console.log('h2.height: ' + h2.height); // 객체때 일때만, undefined.
+
+        // var h2 = h1;    // 같은 객체를 가리키므로, 같은 값을 가진다.
+        h2.age = 30;
+        h1.whoAmI();
+        h2.whoAmI();
+
+        h1.showAge();
+        h2.showAge();
+    </script>
+</body>
+</html>
